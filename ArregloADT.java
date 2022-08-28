@@ -15,15 +15,20 @@ import java.util.Iterator;
 public class ArregloADT<T> {
     
     public static void main(String[] args) {
-        ArregloADT lista = new ArregloADT(12);
-        System.out.println("Dato inicial: " + lista.getItem(0));
-        lista.setItem("Soy un dato...", 0);
-        System.out.println("Dato modificado: " + lista.getItem(0));
-        System.out.println("Tamaño de la lista: " + lista.getLenght());
+        ArregloADT lista = new ArregloADT(12); //Constructor
+        System.out.println("Dato inicial: " + lista.getItem(0)); //getElemento
+        lista.setItem("Soy un dato...", 0); //setElemento
+        System.out.println("Dato modificado: " + lista.getItem(0)); 
+        System.out.println("Tamaño de la lista: " + lista.getLenght()); //getLenght
         Iterator a = lista.getIterator();
+        System.out.println("Impresión utilizando el iterador");
         while (a.hasNext()) {
             System.out.println("-" + a.next());
         }
+        System.out.println("-------------------------------");
+        lista.clear("Hola"); //clear
+        System.out.println("Impresión utilizando toString");
+        System.out.println(lista.toString()); //toString
     }
 
     private final ArrayList<T> datos;
@@ -87,5 +92,14 @@ public class ArregloADT<T> {
 
     public Iterator getIterator(int indice) {
         return datos.listIterator(indice);
+    }
+    /**
+     *Imprime todo los datos almacenados en la lista
+     */
+    @Override
+    public String toString() {
+        String salida = "";
+        salida = datos.stream().map(elemento -> elemento + ", ").reduce(salida, String::concat);
+        return "[ " + salida + " ]" ;
     }
 }

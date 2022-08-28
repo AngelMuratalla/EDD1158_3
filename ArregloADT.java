@@ -16,9 +16,9 @@ public class ArregloADT<T> {
     
     public static void main(String[] args) {
         ArregloADT lista = new ArregloADT(12); //Constructor
-        System.out.println("Dato inicial: " + lista.getItem(0)); //getElemento
-        lista.setItem("Soy un dato...", 0); //setElemento
-        System.out.println("Dato modificado: " + lista.getItem(0)); 
+        System.out.println("Dato inicial: " + lista.getItem(5)); //getElemento
+        lista.setItem("Soy un dato...", 5); //setElemento
+        System.out.println("Dato modificado: " + lista.getItem(5)); 
         System.out.println("Tamaño de la lista: " + lista.getLenght()); //getLenght
         Iterator a = lista.getIterator();
         System.out.println("Impresión utilizando el iterador");
@@ -51,7 +51,7 @@ public class ArregloADT<T> {
      * arreglo regresa null
      */
     public T getItem(int indice) {
-        if (indice >= 0 && indice < 2) {
+        if (indice >= 0 && indice < datos.size()) {
             return datos.get(indice);
         }
         return null;

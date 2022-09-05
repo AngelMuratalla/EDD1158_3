@@ -165,6 +165,5 @@ public class Empleado {
      */
     public double calcularSueldo() {
         return this.sueldoBase + (this.sueldoBase * (getAntiguedad() * 0.03)) + (this.horasExtra * 276.5);
-    }
-    
+    } 
 }

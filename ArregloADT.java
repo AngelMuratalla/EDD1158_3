@@ -1,6 +1,6 @@
-/** 
- Este programa fue creado para hacer una lista ADT que se capaz de almacenar cualquier tipo de dato
-Fecha de creación: 25/'08/2022
+/**
+ * Este programa fue creado para hacer una lista ADT que se capaz de almacenar cualquier tipo de dato
+ * Fecha de creación: 25/'08/2022
  */
 package codigos.edd1158;
 
@@ -13,12 +13,13 @@ import java.util.Iterator;
  *
  */
 public class ArregloADT<T> {
-    
+
     public static void main(String[] args) {
         ArregloADT lista = new ArregloADT(12); //Constructor
-        System.out.println("Dato inicial: " + lista.getItem(0)); //getElemento
-        lista.setItem("Soy un dato...", 0); //setElemento
-        System.out.println("Dato modificado: " + lista.getItem(0)); 
+        System.out.println("Dato inicial: " + lista.getElemento(5)); //getElemento
+        lista.setElemento("Soy un dato...", 5); //setElemento
+        lista.setElemento(new Empleado(19, "Carlos Yael", "Tenorio", "Castilla", 35, 35000, 2002), 1);
+        System.out.println("Dato modificado: " + lista.getElemento(5));
         System.out.println("Tamaño de la lista: " + lista.getLenght()); //getLenght
         Iterator a = lista.getIterator();
         System.out.println("Impresión utilizando el iterador");
@@ -26,7 +27,7 @@ public class ArregloADT<T> {
             System.out.println("-" + a.next());
         }
         System.out.println("-------------------------------");
-        lista.clear("Hola"); //clear
+        lista.clear(5); //clear
         System.out.println("Impresión utilizando toString");
         System.out.println(lista.toString()); //toString
     }
@@ -34,7 +35,9 @@ public class ArregloADT<T> {
     private final ArrayList<T> datos;
 
     /**
-     *Constructor: crea un ArrayList con el tamaño especificado y almacena null como valor de inicio en cada espacio
+     * Constructor: crea un ArrayList con el tamaño especificado y almacena null
+     * como valor de inicio en cada espacio
+     *
      * @param tamanio
      */
     public ArregloADT(int tamanio) {
@@ -47,37 +50,39 @@ public class ArregloADT<T> {
     /**
      *
      * @param indice
-     * @return Regresa el valor almacenado en el indice indicado, si el indice indicado esta fuera del rango del 
-     * arreglo regresa null
+     * @return Regresa el valor almacenado en el indice indicado, si el indice
+     * indicado esta fuera del rango del arreglo regresa null
      */
-    public T getItem(int indice) {
-        if (indice >= 0 && indice < 2) {
-            return datos.get(indice);
+    public T getElemento(int indice) {
+        if (indice >= 0 && indice < datos.size()) {
+            return (T) (datos.get(indice));
         }
         return null;
     }
 
     /**
-     *Remplaza el dato almacenado en el indice indicado por el nuevo tipo de dato que se indique
+     * Remplaza el dato almacenado en el indice indicado por el nuevo tipo de
+     * dato que se indique
      * @param elemento
      * @param indice
      */
-    public void setItem(T elemento, int indice) { //Setter
+    public void setElemento(T elemento, int indice) { //Setter
         if (indice >= 0 && indice < datos.size()) {
             datos.set(indice, elemento);
-        }
+        } 
     }
 
     /**
      *
-     * @return Regresa el tamaño de la lista 
+     * @return Regresa el tamaño de la lista
      */
     public int getLenght() {
         return datos.size();
     }
 
     /**
-     *Remplaza todos los datos almacenados en la lista por un dato indicado
+     * Remplaza todos los datos almacenados en la lista por un dato indicado
+     *
      * @param elemento
      */
     public void clear(T elemento) {
@@ -93,13 +98,14 @@ public class ArregloADT<T> {
     public Iterator getIterator(int indice) {
         return datos.listIterator(indice);
     }
+
     /**
-     *Imprime todo los datos almacenados en la lista
+     * Imprime todo los datos almacenados en la lista
      */
     @Override
     public String toString() {
-        String salida = "";
-        salida = datos.stream().map(elemento -> elemento + ", ").reduce(salida, String::concat);
-        return "[ " + salida + " ]" ;
+//        String salida = "";
+//        salida = datos.stream().map(elemento -> elemento + ", ").reduce(salida, String::concat);
+        return datos.toString();
     }
 }

@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package codigos.edd1158;
 
 import java.awt.BorderLayout;
@@ -19,8 +15,9 @@ import javax.swing.JTable;
 public class RedesSociales {
 
     public static void main(String[] args) {
-        RedesSociales archivo = new RedesSociales("C:\\Users\\rodol\\Downloads\\presenciaredes\\presenciaredes.CSV");
+        RedesSociales archivo = new RedesSociales("C:\\Users\\rodol\\Downloads\\presenciaredes\\presenciaredes.CSV"); 
         archivo.leerArchivo();
+       
         String[] encabezado = new String[15];
         for (int j = 0; j < 15; j++) {
             encabezado[j] = archivo.getLista().get(0).get(j);

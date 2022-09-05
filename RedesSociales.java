@@ -1,4 +1,3 @@
-//Hola
 package codigos.edd1158;
 
 import java.awt.BorderLayout;

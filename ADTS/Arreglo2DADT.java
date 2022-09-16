@@ -1,6 +1,6 @@
-package codigos.edd1158;
 
-import codigos.JuegoVida.Celula;
+package codigos.ADTS;
+
 
 /**
  * Esta clase tiene como proposito crear matrices que sean capaz de almacenar
@@ -60,19 +60,5 @@ public class Arreglo2DADT<T> {
             salida += "\n";
         }
         return salida;
-    }
-    
-    public static void main(String[] args) {
-        Arreglo2DADT<Celula> dd = new Arreglo2DADT(10, 10);
-
-        Celula c = new Celula(false);
-        dd.setElemento(0, 0, c);
-        dd.getElemento(0, 0);
-       ((Celula)dd.getElemento(0, 0)).setEstado(true);
-        System.out.println(dd);
-        dd.limpiar(new Celula(false));
-        System.out.println(dd);
-        ((Celula)dd.getElemento(0, 0)).setEstado(true);
-        System.out.println(dd);
     }
 }

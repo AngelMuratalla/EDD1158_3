@@ -2,8 +2,9 @@
  * Este programa fue creado para hacer una lista ADT que se capaz de almacenar cualquier tipo de dato
  * Fecha de creación: 25/'08/2022
  */
-package codigos.edd1158;
+package codigos.ADTS;
 
+import codigos.Pruebas.Empleado;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -19,20 +20,20 @@ public class ArregloADT<T> {
         lista.setElemento(0, "ARIGATO");
         System.out.println(lista);
         
-//        System.out.println("Dato inicial: " + lista.getElemento(5)); //getElemento
-//        lista.setElemento(5, "Soy un dato..."); //setElemento
-//        lista.setElemento(1, new Empleado(19, "Carlos Yael", "Tenorio", "Castilla", 35, 35000, 2002));
-//        System.out.println("Dato modificado: " + lista.getElemento(5));
-//        System.out.println("Tamaño de la lista: " + lista.getLenght()); //getLenght
-//        Iterator a = lista.getIterator();
-//        System.out.println("Impresión utilizando el iterador");
-//        while (a.hasNext()) {
-//            System.out.println("-" + a.next());
-//        }
-//        System.out.println("-------------------------------");
-//        lista.clear(5); //clear
-//        System.out.println("Impresión utilizando toString");
-//        System.out.println(lista.toString()); //toString
+        System.out.println("Dato inicial: " + lista.getElemento(5)); //getElemento
+        lista.setElemento(5, "Soy un dato..."); //setElemento
+        lista.setElemento(1, new Empleado(19, "Carlos Yael", "Tenorio", "Castilla", 35, 35000, 2002));
+        System.out.println("Dato modificado: " + lista.getElemento(5));
+        System.out.println("Tamaño de la lista: " + lista.getLenght()); //getLenght
+        Iterator a = lista.getIterator();
+        System.out.println("Impresión utilizando el iterador");
+        while (a.hasNext()) {
+            System.out.println("-" + a.next());
+        }
+        System.out.println("-------------------------------");
+        lista.clear(5); //clear
+        System.out.println("Impresión utilizando toString");
+        System.out.println(lista.toString()); //toString
     }
 
      final ArrayList<T> datos;
@@ -85,7 +86,6 @@ public class ArregloADT<T> {
 
     /**
      * Remplaza todos los datos almacenados en la lista por un dato indicado
-     *
      * @param elemento
      */
     public void clear(T elemento) {
